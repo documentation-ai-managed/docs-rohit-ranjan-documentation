@@ -1,0 +1,134 @@
+---
+title: API Overview
+description: Comprehensive guide to using Rohit Ranjan Documentation APIs
+---
+
+## API Overview
+
+Rohit Ranjan Documentation provides a powerful REST API that allows you to programmatically manage your documentation projects, pages, and content.
+
+<Columns cols={3}>
+  <Card title="Authentication" icon="key" href="#authentication">
+    Learn how to authenticate API requests.
+  </Card>
+  <Card title="Endpoints" icon="terminal" href="#endpoints">
+    Explore available API endpoints.
+  </Card>
+  <Card title="SDKs" icon="code" href="#sdks">
+    Use our client libraries and SDKs.
+  </Card>
+</Columns>
+
+## Authentication
+
+All API requests require authentication using API keys. You can generate and manage your API keys in the dashboard.
+
+<Tabs>
+  <Tab title="Bearer Token" icon="lock">
+    Include your API key in the Authorization header.
+    ```bash
+    curl -H "Authorization: Bearer YOUR_API_KEY" \
+         https://api.rohitrnj.com/projects
+    ```
+  </Tab>
+  <Tab title="Query Parameter" icon="settings">
+    Pass your API key as a query parameter.
+    ```bash
+    curl "https://api.rohitrnj.com/projects?api_key=YOUR_API_KEY"
+    ```
+  </Tab>
+</Tabs>
+
+## Endpoints
+
+<Steps>
+  <Step title="Projects" icon="folder">
+    Manage documentation projects with endpoints for creating, updating, and deleting projects.
+    ```javascript
+    // Get all projects
+    const projects = await fetch('/api/projects', {
+      headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+    }).then(r => r.json());
+    ```
+  </Step>
+  <Step title="Pages" icon="file-text">
+    Create and manage individual documentation pages within your projects.
+    ```python
+    import requests
+    
+    # Create a new page
+    response = requests.post('/api/pages', 
+      headers={'Authorization': 'Bearer YOUR_API_KEY'},
+      json={'title': 'New Page', 'content': 'Page content'}
+    )
+    ```
+  </Step>
+  <Step title="Content" icon="edit">
+    Update page content, manage versions, and handle media uploads.
+  </Step>
+</Steps>
+
+## SDKs
+
+<CodeGroup tabs="Node.js,Python,PHP">
+  ```javascript
+  // Node.js SDK example
+  const { RohitDocs } = require('rohitrnj-sdk');
+  
+  const client = new RohitDocs({ apiKey: 'YOUR_API_KEY' });
+  const projects = await client.projects.list();
+  ```
+  ```python
+  # Python SDK example
+  from rohitrnj_sdk import RohitDocs
+  
+  client = RohitDocs(api_key='YOUR_API_KEY')
+  projects = client.projects.list()
+  ```
+  ```php
+  // PHP SDK example
+  $client = new RohitDocs\Client('YOUR_API_KEY');
+  $projects = $client->projects()->list();
+  ```
+</CodeGroup>
+
+## Error Handling
+
+<ExpandableGroup>
+  <Expandable title="Common Errors" default-open="false">
+    Learn about common API errors and how to handle them.
+  </Expandable>
+  <Expandable title="Rate Limits" default-open="false">
+    Understand rate limiting and how to work within limits.
+  </Expandable>
+  <Expandable title="Troubleshooting" default-open="false">
+    Tips for debugging API issues and getting help.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="alert">Always handle API errors gracefully in your applications to provide a better user experience.</Callout>
+
+## Best Practices
+
+| Practice | Description | Benefit |
+|----------|-------------|---------|
+| Batch Operations | Group multiple operations | Improved performance |
+| Caching | Cache API responses | Reduced API calls |
+| Pagination | Handle large result sets | Better user experience |
+| Version Headers | Specify API versions | Future compatibility |
+
+## Webhooks
+
+Set up webhooks to receive real-time notifications about changes to your documentation.
+
+```javascript
+// Example webhook payload
+{
+  "event": "page.updated",
+  "data": {
+    "project_id": "123",
+    "page_id": "456",
+    "changes": ["content", "title"]
+  }
+}
+```

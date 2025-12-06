@@ -1,0 +1,124 @@
+---
+title: Configuration
+description: Learn how to configure and customize your Rohit Ranjan Documentation projects
+---
+
+## Configuration Overview
+
+Rohit Ranjan Documentation offers extensive customization options to match your branding and workflow requirements.
+
+<Columns cols={2}>
+  <Card title="Branding" icon="palette" href="#branding">
+    Customize appearance and branding.
+  </Card>
+  <Card title="Navigation" icon="menu" href="#navigation">
+    Configure navigation structures.
+  </Card>
+</Columns>
+
+## Branding
+
+<Tabs>
+  <Tab title="Colors" icon="droplet">
+    Set custom brand colors for your documentation.
+    ```json
+    {
+      "primaryColor": "#3B82F6",
+      "secondaryColor": "#6B7280",
+      "accentColor": "#10B981"
+    }
+    ```
+  </Tab>
+  <Tab title="Logo" icon="image">
+    Upload and configure your logo and favicon.
+  </Tab>
+  <Tab title="Themes" icon="sun">
+    Choose between light and dark themes or create custom themes.
+  </Tab>
+</Tabs>
+
+## Navigation
+
+<Steps>
+  <Step title="Structure Setup" icon="folder">
+    Define your navigation hierarchy with tabs, groups, and pages.
+  </Step>
+  <Step title="Permissions" icon="shield">
+    Set up user roles and access controls.
+    ```javascript
+    // Configure user permissions
+    const permissions = {
+      admin: ['read', 'write', 'delete'],
+      editor: ['read', 'write'],
+      viewer: ['read']
+    };
+    ```
+  </Step>
+  <Step title="SEO Settings" icon="search">
+    Configure search engine optimization settings.
+  </Step>
+</Steps>
+
+## Advanced Settings
+
+<ExpandableGroup>
+  <Expandable title="API Configuration" default-open="false">
+    Configure API rate limits, webhook endpoints, and authentication settings.
+  </Expandable>
+  <Expandable title="Integrations" default-open="false">
+    Set up integrations with external tools like Slack, GitHub, and CI/CD systems.
+  </Expandable>
+  <Expandable title="Analytics" default-open="false">
+    Enable analytics tracking and reporting for your documentation.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">Save your configuration settings regularly to avoid losing customizations.</Callout>
+
+## Configuration Files
+
+<CodeGroup tabs="JSON,YAML">
+  ```json
+  {
+    "name": "My Documentation",
+    "theme": "custom",
+    "navigation": {
+      "tabs": [
+        {"tab": "Docs", "groups": [...]}
+      ]
+    }
+  }
+  ```
+  ```yaml
+  name: My Documentation
+  theme: custom
+  navigation:
+    tabs:
+      - tab: Docs
+        groups: [...]
+  ```
+</CodeGroup>
+
+## Troubleshooting
+
+| Issue | Solution | Contact Support |
+|-------|----------|----------------|
+| Config not saving | Check file permissions | Yes |
+| Theme not applying | Clear browser cache | No |
+| Navigation broken | Verify JSON syntax | Yes |
+
+## Backup and Restore
+
+Learn how to backup your configuration and restore it when needed.
+
+```bash
+# Backup configuration
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.rohitrnj.com/config/backup > config_backup.json
+
+# Restore configuration
+curl -X POST https://api.rohitrnj.com/config/restore \
+     -H "Authorization: Bearer YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d @config_backup.json
+```

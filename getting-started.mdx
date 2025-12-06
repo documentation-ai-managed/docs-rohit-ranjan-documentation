@@ -1,0 +1,113 @@
+---
+title: Getting Started
+description: Step-by-step guide to set up and begin using Rohit Ranjan Documentation
+---
+
+## Welcome to Rohit Ranjan Documentation
+
+Getting started with Rohit Ranjan Documentation is straightforward. This guide will walk you through the initial setup process and help you create your first documentation project.
+
+<Columns cols={2}>
+  <Card title="Account Setup" icon="user" href="#account-setup">
+    Create your account and get started quickly.
+  </Card>
+  <Card title="First Project" icon="folder" href="#first-project">
+    Set up your first documentation project.
+  </Card>
+</Columns>
+
+## Account Setup
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit our website and click on the "Sign Up" button. Fill in your details including email address and password.
+    ```bash
+    # Sign up via API
+    curl -X POST https://api.rohitrnj.com/signup \
+      -H "Content-Type: application/json" \
+      -d '{"email":"user@example.com","password":"secure123"}'
+    ```
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your email for a verification link and click it to activate your account.
+  </Step>
+  <Step title="Complete Profile" icon="settings">
+    Add additional information like your name and organization to complete your profile setup.
+  </Step>
+</Steps>
+
+## First Project
+
+<Tabs>
+  <Tab title="Web Interface" icon="monitor">
+    <Steps>
+      <Step title="Navigate to Projects" icon="folder">Log in and click on "Projects" in the navigation menu.</Step>
+      <Step title="Create New Project" icon="plus">Click the "New Project" button and enter your project details.</Step>
+      <Step title="Configure Settings" icon="settings">Set up branding, navigation, and permissions for your project.</Step>
+    </Steps>
+  </Tab>
+  <Tab title="API" icon="code">
+    ```javascript
+    // Create a new project via API
+    const projectData = {
+      name: "My Documentation",
+      description: "Project documentation",
+      theme: "default"
+    };
+    
+    fetch('/api/projects', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(projectData)
+    });
+    ```
+  </Tab>
+</Tabs>
+
+## Adding Content
+
+Once your project is set up, you can start adding documentation content. Use our intuitive editor to create pages, organize sections, and add media.
+
+<CodeGroup tabs="Markdown,HTML">
+  ```markdown
+  # My First Page
+  
+  This is a sample documentation page.
+  
+  ## Section
+  
+  Content goes here.
+  ```
+  ```html
+  <h1>My First Page</h1>
+  <p>This is a sample documentation page.</p>
+  <h2>Section</h2>
+  <p>Content goes here.</p>
+  ```
+</CodeGroup>
+
+## Customization
+
+<ExpandableGroup>
+  <Expandable title="Branding" default-open="false">
+    Customize your documentation with your brand colors, logo, and styling options.
+  </Expandable>
+  <Expandable title="Navigation" default-open="false">
+    Set up custom navigation structures with tabs, groups, and nested sections.
+  </Expandable>
+  <Expandable title="Permissions" default-open="false">
+    Configure user roles and access controls for collaborative editing.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="info">Your documentation is automatically versioned, so you can track changes and roll back if needed.</Callout>
+
+## Next Steps
+
+With your account and first project set up, explore our advanced features like API integration, webhooks, and team collaboration tools.
+
+| Feature | Description | Learn More |
+|---------|-------------|------------|
+| API Integration | Connect with external tools | `/api-integration` |
+| Webhooks | Automate workflows | `/webhooks` |
+| Team Collaboration | Work with your team | `/collaboration` |
